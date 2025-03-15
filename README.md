@@ -144,7 +144,7 @@ Inflow Temp: 28.5°C, Humidity: 55.2%, Heatsink Temp: 34.2°C, RPM: 3000
 ## 🛸 **Contributors**
 | Name                   | Role                         |
 |----------------|-------------------|
-| Fadli                  | Hardware Design | | Control Algorithm |
+| Fadli                  | Hardware Design | Control Algorithm |
 
 
 ---
