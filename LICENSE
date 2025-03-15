@@ -1,4 +1,4 @@
-MIT License
+MIT License with Hardware Protection Clause
 
 Copyright (c) 2025 zackpuse
 
@@ -9,13 +9,16 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1️⃣ The software **cannot be used for commercial or industrial purposes** without explicit permission from the author.
+
+2️⃣ The software is **strictly for educational and research purposes** (e.g. FSAE, EV battery cooling system).
+
+3️⃣ Any modification to the **hardware design (cooling system, Peltier control, fan control, etc.) must credit the original author**.
+
+4️⃣ Redistribution of this code or hardware without proper attribution is prohibited.
+
+---
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
