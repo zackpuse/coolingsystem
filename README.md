@@ -151,7 +151,7 @@ Inflow Temp: 28.5°C, Humidity: 55.2%, Heatsink Temp: 34.2°C, RPM: 3000
 
 ## 📥 **Download Project**
 ```
-git clone https://github.com/your-username/Battery-Cooling-System-EV.git
+git clone https://github.com/zackpuse/coolingsystem.git
 ```
 
 ---
