@@ -2,25 +2,32 @@
 #ifndef GLOBALVARIABLES_H
 #define GLOBALVARIABLES_H
 
-// Pins
-#define RPM_PIN 2          // Interrupt-capable pin
-#define DHT_PIN 3
-#define DS18B20_PIN 4
-#define COLD_FAN_PIN 6
-#define HOT_FAN_PIN 9
-#define PELTIER_PIN 5
+// Pin Definitions
+#define INFLOW_FAN_PIN 6       // 3-pin fan (PWM control)
+#define OUTFLOW_FAN_PIN 9      // 3-pin fan (PWM control)
+#define EXTERNAL_FAN_PIN 10    // 4-pin fan (PWM control)
+#define EXTERNAL_FAN_RPM_PIN 2 // RPM feedback (interrupt-capable pin)
+#define DHT_PIN 3              // DHT22 sensor pin
+#define PELTIER_PIN 5          // Peltier control pin
 
-// Thresholds
-#define FREEZE_TEMP 5.0
-#define OVERHEAT_TEMP 25.0
-#define HIGH_HUMIDITY 60
-#define RPM_THRESHOLD 3000
-#define COLD_FAN_HIGH 200
-#define COLD_FAN_NORMAL 120
-#define HOT_FAN_LOW 80
-#define HOT_FAN_HIGH 180
+// Thresholds & Parameters (Centralized Configuration)
+#define INFLOW_TEMP_THRESHOLD 25.0     // Threshold for inflow fan speed
+#define HEATSINK_TEMP_THRESHOLD 30.0   // Threshold for outflow fan speed
+#define FREEZE_TEMP_THRESHOLD 5.0      // Peltier anti-freeze cutoff
+#define EXTERNAL_FAN_RPM_THRESHOLD 3000 // RPM threshold for external fan
 
-extern float inflowTemp, humidity, heatsinkTemp;
-extern int rpm;
+// PWM Values
+#define INFLOW_FAN_HIGH 200   // Inflow fan high speed
+#define INFLOW_FAN_LOW 120    // Inflow fan low speed
+#define OUTFLOW_FAN_HIGH 200  // Outflow fan high speed
+#define OUTFLOW_FAN_LOW 120   // Outflow fan low speed
+#define EXTERNAL_FAN_HIGH 255 // External fan full speed
+#define EXTERNAL_FAN_MEDIUM 128 // External fan medium speed
+
+// Global Variables
+extern float inflowTemp;       // Inflow temperature from DHT22
+extern float humidity;         // Humidity from DHT22
+extern float heatsinkTemp;     // Heatsink temperature
+extern int rpm;                // External fan RPM
 
 #endif

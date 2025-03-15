@@ -1,32 +1,20 @@
 //--------------------SensorRead.cpp---------------//
 #include "SensorRead.h"
-#include <DHT.h>
-#include <OneWire.h>
-#include <DallasTemperature.h>
-#include <Arduino.h>
 #include "GlobalVariables.h"
 
-#define DHT_PIN 2
-#define DS18B20_PIN 3
+#define DHT_TYPE DHT22
 
-DHT dht(DHT_PIN, DHT22);
-OneWire oneWire(DS18B20_PIN);
-DallasTemperature sensors(&oneWire);
-
-
+DHT dht(DHT_PIN, DHT_TYPE);
 
 void initSensors() {
   dht.begin();
-  sensors.begin();
 }
 
 void readSensors() {
-  // DHT22 Reading
+  // Read DHT22 (inflow temperature and humidity)
   inflowTemp = dht.readTemperature();
   humidity = dht.readHumidity();
 
-  // DS18B20 Reading
-  sensors.requestTemperatures();
-  heatsinkTemp = sensors.getTempCByIndex(0);
+  // Simulate heatsink temperature (replace with actual sensor reading)
+  heatsinkTemp = inflowTemp - 5.0; // Example: heatsink is 5°C cooler
 }
-

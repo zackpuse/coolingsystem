@@ -3,6 +3,6 @@
 #define RPMCOUNTER_H
 
 void countPulse();      // Interrupt function for RPM counting
-void calculateRPM();    // RPM Calculation logic
+void calculateRPM();    // RPM calculation logic
 
 #endif

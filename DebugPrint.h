@@ -2,6 +2,6 @@
 #ifndef DEBUGPRINT_H
 #define DEBUGPRINT_H
 
-void printDebug();
+void printDebug();  // Print debug data
 
-#endif
+#endif 

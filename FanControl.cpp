@@ -1,30 +1,34 @@
 //--------------------FanControl.cpp---------------//
-#include "FanControl.h"
-#include "SensorRead.h"
-#include "RPMCounter.h"
 #include <Arduino.h>
+#include "FanControl.h"
 #include "GlobalVariables.h"
 
-#define COLD_FAN_PIN 6  // Cold Side Fan
-#define HOT_FAN_PIN 9   // Hot Side Fan with RPM Feedback
-
 void initFanControl() {
-  pinMode(COLD_FAN_PIN, OUTPUT);
-  pinMode(HOT_FAN_PIN, OUTPUT);
+  pinMode(INFLOW_FAN_PIN, OUTPUT);
+  pinMode(OUTFLOW_FAN_PIN, OUTPUT);
+  pinMode(EXTERNAL_FAN_PIN, OUTPUT);
+  pinMode(EXTERNAL_FAN_RPM_PIN, INPUT);
 }
 
 void controlFan() {
-  // Increase Cold Side Fan Speed if Humidity > 60% to prevent condensation
-  if (humidity > 60) {
-    analogWrite(COLD_FAN_PIN, 200); // Faster Cold Side Fan
+  // Control Inflow Fan (3-pin, PWM)
+  if (inflowTemp > INFLOW_TEMP_THRESHOLD) {
+    analogWrite(INFLOW_FAN_PIN, INFLOW_FAN_HIGH);
   } else {
-    analogWrite(COLD_FAN_PIN, 120); // Normal Speed
+    analogWrite(INFLOW_FAN_PIN, INFLOW_FAN_LOW);
   }
 
-  // Adjust Hot Side Fan Based on RPM Feedback
-  if (rpm > 3000) {
-    analogWrite(HOT_FAN_PIN, 80); // Reduce Fan Speed (High Car Speed)
+  // Control Outflow Fan (3-pin, PWM)
+  if (heatsinkTemp > HEATSINK_TEMP_THRESHOLD) {
+    analogWrite(OUTFLOW_FAN_PIN, OUTFLOW_FAN_HIGH);
   } else {
-    analogWrite(HOT_FAN_PIN, 180); // Increase Fan Speed (Car Stationary)
+    analogWrite(OUTFLOW_FAN_PIN, OUTFLOW_FAN_LOW);
+  }
+
+  // Control External Fan (4-pin, RPM feedback)
+  if (rpm > EXTERNAL_FAN_RPM_THRESHOLD) {
+    analogWrite(EXTERNAL_FAN_PIN, EXTERNAL_FAN_MEDIUM);
+  } else {
+    analogWrite(EXTERNAL_FAN_PIN, EXTERNAL_FAN_HIGH);
   }
 }

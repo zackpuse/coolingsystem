@@ -2,7 +2,7 @@
 #ifndef FANCONTROL_H
 #define FANCONTROL_H
 
-void initFanControl();  // Initialize fan
-void controlFan();      // Control fan speed based on humidity and RPM
+void initFanControl();  // Initialize fan pins
+void controlFan();      // Control fan speeds
 
 #endif

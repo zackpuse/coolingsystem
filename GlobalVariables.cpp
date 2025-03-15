@@ -1,6 +1,7 @@
+//-------------------------GlobalVariables.cpp------------------//
 #include "GlobalVariables.h"
 
-// Global Variables Definition (only once here)
+// Global Variables Definition
 float inflowTemp = 0.0;
 float humidity = 0.0;
 float heatsinkTemp = 0.0;

@@ -3,10 +3,8 @@
 #include "RPMCounter.h"
 #include "GlobalVariables.h"
 
-#define RPM_PIN 2
 volatile int pulseCount = 0;
 unsigned long lastMillis = 0;
-
 
 void countPulse() {
   pulseCount++;
@@ -14,12 +12,12 @@ void countPulse() {
 
 void calculateRPM() {
   unsigned long currentMillis = millis();
-  if (currentMillis - lastMillis >= 1000) {
+  if (currentMillis - lastMillis >= 1000) { // Update RPM every second
     noInterrupts();
     int currentPulses = pulseCount;
     pulseCount = 0;
     interrupts();
-    rpm = currentPulses * 30; // 60/2 = 30
+    rpm = currentPulses * 30; // 60 seconds / 2 pulses per revolution
     lastMillis = currentMillis;
   }
 }

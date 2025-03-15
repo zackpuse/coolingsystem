@@ -2,7 +2,9 @@
 #ifndef SENSORREAD_H
 #define SENSORREAD_H
 
-void initSensors();
-void readSensors();
+#include <DHT.h>
+
+void initSensors();   // Initialize sensors
+void readSensors();   // Read sensor data
 
 #endif

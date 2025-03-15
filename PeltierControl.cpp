@@ -1,20 +1,15 @@
 //--------------------PeltierControl.cpp---------------//
-#include "PeltierControl.h"
-#include "SensorRead.h"
 #include <Arduino.h>
+#include "PeltierControl.h"
 #include "GlobalVariables.h"
 
-#define PELTIER_PIN 5
-
 void controlPeltier() {
-  if (heatsinkTemp < 5.0) { // Freeze Warning
+  if (heatsinkTemp < FREEZE_TEMP_THRESHOLD) { // Anti-freeze cutoff
     digitalWrite(PELTIER_PIN, LOW); // Turn OFF Peltier
-  } 
-  else if (inflowTemp > 25.0) { 
+  } else if (inflowTemp > INFLOW_TEMP_THRESHOLD) {
     digitalWrite(PELTIER_PIN, HIGH); // Turn ON Peltier
-  } 
-  else {
-    digitalWrite(PELTIER_PIN, LOW); // Maintain Condition
+  } else {
+    digitalWrite(PELTIER_PIN, LOW);// Maintain OFF
   }
 }
 
