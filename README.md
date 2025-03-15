@@ -1,4 +1,4 @@
-# 🚗 Battery Cooling System with Peltier and Fan Control for EV
+# 🚗 Battery Cooling System with Peltier and Fan Control
 
 This project is an **Arduino-based Battery Cooling System** for **Electric Vehicle (EV) applications**, utilizing **Peltier modules, fan control, and RPM feedback** to **prevent overheating and condensation**.
 
